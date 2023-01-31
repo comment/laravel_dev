@@ -76,5 +76,14 @@
             @yield('content')
         </main>
     </div>
+    <script type="module">
+        window.onload = function() {
+            Echo.channel('public')
+                .listen('PublicEvent', (e) => {
+                    document.getElementById('svg').setAttribute('fill', e.color);
+
+                });
+        }
+    </script>
 </body>
 </html>
